@@ -52,12 +52,7 @@ class Http extends AbstractConnection {
      *
      * @throws Exception\Exception
      */
-    public function __construct($target) {
-        //validate url...
-        if (!filter_var($target, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
-            throw new Exception\Exception('Valid URL (scheme://domain[/path][/file]) required.');
-        }
-
+    public function __construct($target) {     
         //validate scheme...
         $t = parse_url($target);
         if (strtolower($t['scheme']) != 'http' && strtolower($t['scheme']) != 'https') {
